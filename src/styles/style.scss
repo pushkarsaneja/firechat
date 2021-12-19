@@ -1,0 +1,19 @@
+@import './variables.scss';
+@import './base.scss';
+@import './pages/signIn.scss';
+@import './components/all.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Roboto', sans-serif;
+  overflow-x: hidden;
+}
+
+.body-container {
+  display: flex;
+  min-height: 100vh;
+  width: 100vw;
+  background-color: var(--backgroundColor);
+}

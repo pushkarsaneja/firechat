@@ -1,0 +1,38 @@
+%button-styling {
+  font-size: 1.2rem;
+  font-weight: 700;
+  border-radius: 10px;
+  outline: none;
+  border: none;
+  padding: 1rem;
+  flex: 1;
+  margin: 0.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  > img {
+    height: 1.5rem;
+    margin-right: 1rem;
+  }
+}
+
+.basic-button {
+  @extend %button-styling;
+}
+
+.gradient-button {
+  @extend %button-styling;
+  background: var(--buttonInactiveColor);
+  color: var(--textColor1);
+}
+
+.gradient-button.active {
+  background: var(--primaryGradient);
+}
+
+.dark-button {
+  @extend %button-styling;
+  background-color: var(--backgroundColor);
+  color: var(--textColor1);
+}

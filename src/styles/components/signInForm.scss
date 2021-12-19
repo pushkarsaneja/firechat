@@ -1,0 +1,50 @@
+.form-container {
+  padding: 2rem;
+  background-color: var(--backdrop);
+  border-radius: 1rem;
+  margin: 2rem;
+  transition: all 0.5s linear;
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 500px;
+
+  .buttons-container {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    @media screen and (max-width: 450px) {
+      span {
+        display: none;
+      }
+    }
+  }
+
+  .signin,
+  .signup {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    > div {
+      display: flex;
+    }
+  }
+
+  .signup {
+    display: none;
+    transform: rotateY(-180deg);
+  }
+}
+
+.rotate-form {
+  transform: rotateY(180deg);
+  > .buttons-container {
+    transform: rotateY(-180deg);
+  }
+  .signup {
+    display: flex;
+  }
+
+  .signin {
+    display: none;
+  }
+}

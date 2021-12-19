@@ -1,0 +1,22 @@
+.dark-theme {
+  --primaryGradient: linear-gradient(to top right, #ee0979, #ff6a00);
+  --secondaryGradient: linear-gradient(to top right, #833ab4, #fd1d1d, #fcb045);
+  --backgroundGradient: linear-gradient(
+    to bottom right,
+    #0f2027,
+    #203a43,
+    #2c5364
+  );
+  --backgroundColor: #313846;
+  --primaryColor1: #ee0979;
+  --textColor1: #fff;
+  --textColor2: #e0e0e0;
+  --backdrop: #f5f5f5;
+  --shadow: 0px 0px 25px rgba(180, 174, 174, 0.404);
+  --transparent: #ffffff00;
+  --buttonInactiveColor: #b0b5b9;
+}
+
+.light-theme {
+  --primaryGradient: linear-gradient(to top right, #12c2e9, #c471ed, #f64f59);
+}
