@@ -1,0 +1,59 @@
+.alert-container {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  z-index: 10;
+  min-height: 100px;
+  width: 300px;
+  padding: 2rem;
+  margin: 1rem;
+  border-radius: 10px;
+
+  animation: slide-in 5s ease-in-out;
+  p {
+    color: var(--textColor1);
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+  button {
+    padding: 1rem;
+    border: none;
+    outline: none;
+    background-color: var(--transparent);
+    font-size: 1.2rem;
+    position: absolute;
+    top: 0;
+    right: 0;
+    cursor: pointer;
+    color: var(--textColor1);
+  }
+}
+
+.error {
+  background-color: rgba(216, 84, 64, 0.9);
+}
+
+.success {
+  background-color: rgba(64, 216, 115, 0.9);
+}
+
+.default {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+@keyframes slide-in {
+  0% {
+    transform: translate(-50%, -200%);
+  }
+  10% {
+    transform: translate(-50%, 0%);
+  }
+
+  90% {
+    transform: translate(-50%, 0%);
+  }
+
+  100% {
+    transform: translate(-50%, -200%);
+  }
+}

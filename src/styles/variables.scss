@@ -1,22 +1,20 @@
 .dark-theme {
-  --primaryGradient: linear-gradient(to top right, #ee0979, #ff6a00);
-  --secondaryGradient: linear-gradient(to top right, #833ab4, #fd1d1d, #fcb045);
-  --backgroundGradient: linear-gradient(
-    to bottom right,
-    #0f2027,
-    #203a43,
-    #2c5364
-  );
-  --backgroundColor: #313846;
-  --primaryColor1: #ee0979;
+  --backgroundColor: #101d25;
+  --primaryColor1: #25d366;
+  // --primaryColor1: #3ea2eb;
+  --primaryColor2: #128c7e;
+  // --primaryColor2: #0377f0;
+  --inactiveColor: #807b7b;
   --textColor1: #fff;
   --textColor2: #e0e0e0;
-  --backdrop: #f5f5f5;
-  --shadow: 0px 0px 25px rgba(180, 174, 174, 0.404);
+  --textColor3: #000;
   --transparent: #ffffff00;
-  --buttonInactiveColor: #b0b5b9;
 }
 
 .light-theme {
-  --primaryGradient: linear-gradient(to top right, #12c2e9, #c471ed, #f64f59);
+  --backgroundColor: #fff;
+  --textColor1: #000;
+  --textColor2: #e0e0e0;
+  --textColor3: #fff;
+  --transparent: #ffffff00;
 }

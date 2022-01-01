@@ -1,0 +1,11 @@
+.logo-header {
+  display: flex;
+  color: var(--textColor1);
+  align-items: center;
+  padding: 1rem;
+  width: 100%;
+  > h2 {
+    margin-left: 1rem;
+    font-size: 2rem;
+  }
+}

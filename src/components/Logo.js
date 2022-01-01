@@ -1,6 +1,8 @@
 import React from 'react';
 
-const GradientLogo = ({ size }) => {
+// styles implemented in "../styles/components/logo.scss"
+
+const Logo = ({ size }) => {
   return (
     <div className={`logo-container font-size-${size}rem`}>
       <i className="fas fa-fire logo" />
@@ -8,4 +10,4 @@ const GradientLogo = ({ size }) => {
   );
 };
 
-export default GradientLogo;
+export default Logo;

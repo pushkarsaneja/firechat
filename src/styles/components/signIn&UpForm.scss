@@ -1,0 +1,13 @@
+.signin,
+.signup {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  > div {
+    display: flex;
+  }
+}
+
+.signup {
+  transform: rotateY(-180deg);
+}

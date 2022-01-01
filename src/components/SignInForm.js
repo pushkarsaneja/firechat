@@ -1,96 +1,53 @@
-import React, { useState } from 'react';
-import googleIcon from '../assets/icons/google.jpeg';
+import React, { useRef } from 'react';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../misc/firebase';
+import { useAlertContext } from '../context/AlertProvider';
+import SignInWithGoogle from './SignInWithGoogle';
+import { PrimaryButton2 } from './Buttons';
+
+// styles implemented in "../styles/components/signIn&UpForm.scss"
 
 const SignInForm = () => {
-  const [isSignInForm, setIsSignInForm] = useState(true);
+  const alertUser = useAlertContext();
+  const signInFormRef = useRef();
+
+  const signInWithEmail = async (email, password) => {
+    try {
+      await signInWithEmailAndPassword(auth, email, password);
+    } catch (err) {
+      alertUser(err.message, 'error');
+    }
+  };
+
   return (
-    <div
-      className={isSignInForm ? 'form-container' : 'form-container rotate-form'}
-    >
+    <form className="signin" ref={signInFormRef}>
+      <input
+        className="basic-input"
+        type="email"
+        placeholder="email"
+        name="email"
+      />
+      <input
+        className="basic-input"
+        type="password"
+        placeholder="password"
+        name="password"
+      />
       <div className="buttons-container">
-        <button
-          className={
-            isSignInForm ? 'gradient-button' : 'gradient-button active'
-          }
-          type="button"
+        <PrimaryButton2
+          active={true}
           onClick={() => {
-            setIsSignInForm(false);
+            signInWithEmail(
+              signInFormRef.current.email.value,
+              signInFormRef.current.password.value
+            );
           }}
         >
-          SignUp
-        </button>
-        <button
-          className={
-            isSignInForm ? 'gradient-button active' : 'gradient-button '
-          }
-          type="button"
-          onClick={() => {
-            setIsSignInForm(1);
-          }}
-        >
-          SignIn
-        </button>
+          Submit
+        </PrimaryButton2>
+        <SignInWithGoogle />
       </div>
-
-      <form className="signin">
-        <input
-          className="basic-input"
-          type="email"
-          placeholder="email"
-          name="email"
-          id="email"
-        />
-        <input
-          className="basic-input"
-          type="password"
-          placeholder="password"
-          id="password"
-          name="password"
-        />
-        <div className="buttons-container">
-          <button className="dark-button" type="button">
-            Submit
-          </button>
-          <button className="dark-button" type="button">
-            <img src={googleIcon} alt="" />{' '}
-            <span className="button-text">Google</span>
-          </button>
-        </div>
-      </form>
-
-      <form className="signup">
-        <input
-          className="basic-input"
-          type="email"
-          placeholder="email"
-          name="email"
-          id="email"
-        />
-        <input
-          className="basic-input"
-          type="password"
-          placeholder="password"
-          id="password"
-          name="password"
-        />
-        <input
-          className="basic-input"
-          type="password"
-          placeholder="confirm password"
-          id="confirm-password"
-          name="confirmPassword"
-        />
-        <div className="buttons-container">
-          <button className="dark-button" type="button">
-            Submit
-          </button>
-          <button className="dark-button" type="button">
-            <img src={googleIcon} alt="" />
-            <span className="button-text">Google</span>
-          </button>
-        </div>
-      </form>
-    </div>
+    </form>
   );
 };
 

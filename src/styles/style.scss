@@ -1,6 +1,6 @@
 @import './variables.scss';
 @import './base.scss';
-@import './pages/signIn.scss';
+@import './pages/all.scss';
 @import './components/all.scss';
 
 * {
@@ -15,5 +15,6 @@
   display: flex;
   min-height: 100vh;
   width: 100vw;
-  background-color: var(--backgroundColor);
+  background: var(--backgroundColor);
+  position: relative;
 }
