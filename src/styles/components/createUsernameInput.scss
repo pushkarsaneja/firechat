@@ -1,0 +1,19 @@
+.create-username-input-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  i {
+    font-size: 1.5rem;
+    position: absolute;
+    right: 0;
+    margin: 1rem;
+  }
+
+  .fa-times {
+    color: rgba(255, 0, 0, 0.76);
+  }
+
+  .fa-check {
+    color: rgba(0, 128, 0, 0.76);
+  }
+}

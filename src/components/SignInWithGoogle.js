@@ -5,12 +5,15 @@ import { auth } from '../misc/firebase';
 import { useAlertContext } from '../context/AlertProvider';
 import { PrimaryButton2 } from './Buttons';
 
+// returns a button that opens a popup for google signup/signin
+
 const SignInWithGoogle = () => {
   const alertUser = useAlertContext();
   const provider = new GoogleAuthProvider();
   const signInWithGoogle = async () => {
     try {
       await signInWithPopup(auth, provider);
+      alertUser('Signed In Successfully');
     } catch (err) {
       alertUser(err.message, 'error');
     }

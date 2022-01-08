@@ -28,7 +28,6 @@ const CircularProfilePic = ({
   setProfileImage = null,
 }) => {
   const [imageLocation, setImageLocation] = useState(imageUrl);
-  console.log(imageLocation);
   return (
     <>
       <ProfilePhotoContainer

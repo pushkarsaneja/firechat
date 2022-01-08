@@ -1,0 +1,16 @@
+.loader {
+  justify-content: center;
+  align-items: center;
+  font-size: 7rem;
+  color: var(--primaryColor1);
+
+  i {
+    animation: rotate-infinite 1.5s infinite linear;
+  }
+
+  @keyframes rotate-infinite {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

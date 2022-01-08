@@ -6,7 +6,7 @@ const HomePageRoute = ({ children }) => {
   const user = useCurrentUser();
   const isLoggedIn = user;
   const isVerified = user ? user.emailVerified : false;
-  const hasUsername = false;
+  const hasUsername = user ? user.username : false;
 
   if (isLoggedIn) {
     if (isVerified) {

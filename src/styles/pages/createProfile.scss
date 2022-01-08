@@ -14,6 +14,9 @@
     align-items: center;
     width: 90%;
     max-width: 500px;
+    label {
+      cursor: pointer;
+    }
     > div {
       width: 100%;
     }

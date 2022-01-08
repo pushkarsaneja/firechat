@@ -8,6 +8,9 @@ import React, {
 
 // styles implemented in "../styles/components/alertProvider.scss"
 
+// provides a function alertUser(message,type), type: 'error' || 'success' || 'default'
+// a custom alert box notifies the entered message to user for 5 seconds
+
 const alertContext = createContext();
 
 const AlertProvider = ({ children }) => {

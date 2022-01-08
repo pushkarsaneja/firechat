@@ -32,7 +32,7 @@ const SignUpForm = () => {
         email,
         password
       );
-      verifyUserEmail(userCredential.user);
+      await verifyUserEmail(userCredential.user);
       alertUser('Verification link sent to email', 'success');
     } catch (err) {
       alertUser(err.message, 'error');

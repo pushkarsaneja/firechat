@@ -4,11 +4,12 @@ import Logo from '../components/Logo';
 import LogoHeader from '../components/LogoHeader';
 import SignInForm from '../components/SignInForm';
 import SignUpForm from '../components/SignUpForm';
+import Body from '../components/Body';
 
 const SignIn = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   return (
-    <div className="sign-in-page body-container">
+    <Body className="sign-in-page">
       <LogoHeader />
 
       <div className="main-container">
@@ -51,7 +52,7 @@ const SignIn = () => {
           <h1>Fire Chat</h1>
         </div>
       </div>
-    </div>
+    </Body>
   );
 };
 
