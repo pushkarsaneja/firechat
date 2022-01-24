@@ -1,14 +1,29 @@
-.loader {
+.loader-container {
+  display: flex;
   justify-content: center;
   align-items: center;
-  font-size: 7rem;
-  color: var(--primaryColor1);
-
-  i {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-color: #222020af;
+  top: 0;
+  bottom: 0;
+  > div {
+    display: block;
+    width: 80px;
+    height: 80px;
+    border: 8px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    border-top-color: var(--primaryColor1);
     animation: rotate-infinite 1.5s infinite linear;
   }
-
+  &.circular-loader {
+    border-radius: 50%;
+  }
   @keyframes rotate-infinite {
+    0% {
+      transform: rotate(0deg);
+    }
     100% {
       transform: rotate(360deg);
     }

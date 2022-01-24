@@ -1,16 +1,16 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import SignIn from './pages/SignIn';
-import Home from './pages/Home';
+import Registration from './pages/registration/Registration';
+import Home from './pages/home/Home';
 import HomePageRoute from './customRoutes/HomePageRoute';
 import PublicRoute from './customRoutes/PublicRoute';
-import ThemeProvider from './context/ThemeProvider';
 import AlertProvider from './context/AlertProvider';
-import VerifyEmail from './pages/VerifyEmail';
+import VerifyEmail from './pages/verifyEmail/VerifyEmail';
 import VerifyEmailRoute from './customRoutes/VerifyEmailRoute';
 import CreateProfileRoute from './customRoutes/CreateProfileRoute';
-import CreateProfile from '../src/pages/CreateProfile';
+import CreateProfile from '../src/pages/createProfile/CreateProfile';
 import CurrentUserProvider from './context/CurrentUserProvider';
+import ThemeProvider from './context/ThemeProvider';
 
 const App = () => {
   return (
@@ -28,10 +28,10 @@ const App = () => {
                 }
               />
               <Route
-                path="/signin"
+                path="/register"
                 element={
                   <PublicRoute>
-                    <SignIn />
+                    <Registration />
                   </PublicRoute>
                 }
               />

@@ -13,36 +13,37 @@ import React, {
 
 const alertContext = createContext();
 
-const AlertProvider = ({ children }) => {
-  const [message, setMessage] = useState('');
-  const [type, setType] = useState('default');
-
+const AlertProvider = ({ children, time = 5000 }) => {
+  const [alertMessage, setAlertMessage] = useState({
+    message: '',
+    type: 'default',
+  });
   const alertUser = useCallback((message, type) => {
-    setMessage(message);
-    setType(type); //type: 'error' || 'success' || 'default'
+    setAlertMessage({ message: message, type: type });
   }, []);
 
   useEffect(() => {
-    const clearMessage = setTimeout(() => {
-      if (message) setMessage('');
-      if (type !== 'default') setType('default');
-    }, 5000);
+    let clearMessage;
+    if (alertMessage.message)
+      clearMessage = setTimeout(() => {
+        setAlertMessage({ message: '', type: 'default' });
+      }, time);
 
     return () => {
       clearTimeout(clearMessage);
     };
-  }, [message, type]);
+  }, [time, alertMessage]);
 
   return (
     <alertContext.Provider value={alertUser}>
-      {message && (
-        <div className={`alert-container ${type}`}>
+      {alertMessage.message && (
+        <div className={`alert-container ${alertMessage.type}`}>
           <div>
-            <p>{message}</p>
+            <p>{alertMessage.message}</p>
             <button
               type="button"
               onClick={() => {
-                setMessage('');
+                setAlertMessage({ message: '', type: 'default' });
               }}
             >
               <i className="fas fa-times" />

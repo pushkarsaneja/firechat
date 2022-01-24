@@ -1,16 +1,18 @@
 import React, { useState } from 'react';
-import { PrimaryButton1 } from '../components/Buttons';
-import Logo from '../components/Logo';
-import LogoHeader from '../components/LogoHeader';
-import SignInForm from '../components/SignInForm';
-import SignUpForm from '../components/SignUpForm';
-import Body from '../components/Body';
+import { PrimaryButton2 } from '../../components/Buttons';
+import Logo from '../../components/Logo';
+import Header from '../../components/Header';
+import SignInForm from './SignInForm';
+import SignUpForm from './SignUpForm';
+import Body from '../../components/Body';
 
-const SignIn = () => {
+// styles implemented in '../../styles/pages/registration/registration.scss'
+
+const Registration = () => {
   const [isSignInForm, setIsSignInForm] = useState(true);
   return (
     <Body className="sign-in-page">
-      <LogoHeader />
+      <Header hideThemeSelector />
 
       <div className="main-container">
         <div className="left-section">
@@ -26,22 +28,22 @@ const SignIn = () => {
             }
           >
             <div className="buttons-container">
-              <PrimaryButton1
+              <PrimaryButton2
                 active={!isSignInForm}
                 onClick={() => {
                   setIsSignInForm(false);
                 }}
               >
                 SignUp
-              </PrimaryButton1>
-              <PrimaryButton1
+              </PrimaryButton2>
+              <PrimaryButton2
                 active={isSignInForm}
                 onClick={() => {
                   setIsSignInForm(true);
                 }}
               >
                 SignIn
-              </PrimaryButton1>
+              </PrimaryButton2>
             </div>
             {!isSignInForm && <SignUpForm />}
             {isSignInForm && <SignInForm />}
@@ -56,4 +58,4 @@ const SignIn = () => {
   );
 };
 
-export default SignIn;
+export default Registration;

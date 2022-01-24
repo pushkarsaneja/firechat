@@ -2,7 +2,8 @@ import React from 'react';
 import { Navigate } from 'react-router-dom';
 import { useAlertContext } from '../context/AlertProvider';
 import { useCurrentUser } from '../context/CurrentUserProvider';
-import { refreshUserToken } from '../helper/refreshUserToken';
+import { getIdToken } from 'firebase/auth';
+import { auth } from '../firebase/firebase';
 
 const CreateProfileRoute = ({ children }) => {
   const user = useCurrentUser();
@@ -13,9 +14,13 @@ const CreateProfileRoute = ({ children }) => {
 
   if (isLoggedIn) {
     if (isVerified) {
-      refreshUserToken().catch(err => {
-        alertUser(err.message, 'error');
-      });
+      (async () => {
+        try {
+          if (user) await getIdToken(auth.currentUser, true);
+        } catch (err) {
+          alertUser(err.message, 'error');
+        }
+      })();
       if (!hasUsername) {
         return children;
       }
@@ -24,7 +29,7 @@ const CreateProfileRoute = ({ children }) => {
     return <Navigate to="/" />;
   }
 
-  return <Navigate to="/signin" />;
+  return <Navigate to="/register" />;
 };
 
 export default CreateProfileRoute;

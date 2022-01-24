@@ -1,11 +1,12 @@
 import React, { useRef } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../misc/firebase';
-import { useAlertContext } from '../context/AlertProvider';
+import { auth } from '../../firebase/firebase';
+import { useAlertContext } from '../../context/AlertProvider';
 import SignInWithGoogle from './SignInWithGoogle';
-import { PrimaryButton2 } from './Buttons';
+import { PrimaryButton1 } from '../../components/Buttons';
+import { BasicInput, PasswordInput } from '../../components/InputFields';
 
-// styles implemented in "../styles/components/signIn&UpForm.scss"
+// styles implemented in "../../styles/pages/registration/registrationForms.scss"
 
 const SignInForm = () => {
   const alertUser = useAlertContext();
@@ -14,7 +15,7 @@ const SignInForm = () => {
   const signInWithEmail = async (email, password) => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      alertUser('Signed In Successfully');
+      alertUser('Signed In Successfully', 'success');
     } catch (err) {
       alertUser(err.message, 'error');
     }
@@ -22,20 +23,10 @@ const SignInForm = () => {
 
   return (
     <form className="signin" ref={signInFormRef}>
-      <input
-        className="basic-input"
-        type="email"
-        placeholder="email"
-        name="email"
-      />
-      <input
-        className="basic-input"
-        type="password"
-        placeholder="password"
-        name="password"
-      />
+      <BasicInput type="email" placeholder="email" name="email" />
+      <PasswordInput placeholder="password" name="password" />
       <div className="buttons-container">
-        <PrimaryButton2
+        <PrimaryButton1
           active={true}
           onClick={() => {
             signInWithEmail(
@@ -45,7 +36,7 @@ const SignInForm = () => {
           }}
         >
           Submit
-        </PrimaryButton2>
+        </PrimaryButton1>
         <SignInWithGoogle />
       </div>
     </form>

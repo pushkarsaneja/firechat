@@ -1,31 +1,30 @@
 import React from 'react';
-import { PrimaryButton1 } from '../components/Buttons';
-import LogoHeader from '../components/LogoHeader';
-import { useCurrentUser } from '../context/CurrentUserProvider';
-import { verifyUserEmail } from '../helper/emailVerification';
-import { useAlertContext } from '../context/AlertProvider';
-import Body from '../components/Body';
+import { PrimaryButton1 } from '../../components/Buttons';
+import Header from '../../components/Header';
+import { verifyUserEmail } from '../../helper/verifyUserEmail';
+import { useAlertContext } from '../../context/AlertProvider';
+import Body from '../../components/Body';
+import { useCurrentUser } from '../../context/CurrentUserProvider';
 
-// styles implemented in "../styles/pages/verifyEmail.scss"
+// styles implemented in "../../styles/pages/verifyEmail/verifyEmail.scss"
 
 const VerifyEmail = () => {
-  const user = useCurrentUser();
   const alertUser = useAlertContext();
-
+  const user = useCurrentUser();
   return (
     <Body className="verify-email">
-      <LogoHeader />
-      <h1>
+      <Header />
+      <h2>
         Please verify your email with the link sent to your registered email
         account.
-      </h1>
-      <h2>
-        Didn't received verification link? Click the button to resend link.
       </h2>
+      <h3>
+        Didn't received verification link? Click the button to resend link.
+      </h3>
       <PrimaryButton1
         onClick={async () => {
           try {
-            verifyUserEmail(user);
+            await verifyUserEmail(user.userObj);
             alertUser('Verification link sent to email', 'success');
           } catch (err) {
             alertUser(err.message, 'error');

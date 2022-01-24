@@ -5,12 +5,12 @@ import React, {
   useContext,
   useCallback,
 } from 'react';
-import { auth } from '../misc/firebase';
+import { auth } from '../firebase/firebase';
 import { onAuthStateChanged } from 'firebase/auth';
 import { doc, getDoc, onSnapshot, setDoc } from 'firebase/firestore';
-import { db } from '../misc/firebase';
+import { db } from '../firebase/firebase';
 import { useAlertContext } from './AlertProvider';
-import Loader from '../components/Loader';
+import FullScreenLoader from '../components/FullScreenLoader';
 
 //this context provides current signed in user details
 const currentUserContext = createContext();
@@ -18,6 +18,7 @@ const currentUserContext = createContext();
 const CurrentUserProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+
   const alertUser = useAlertContext();
 
   //listenUserDoc listens to userdata in the database and resets the data in currentUser state
@@ -27,14 +28,15 @@ const CurrentUserProvider = ({ children }) => {
     onSnapshot(doc(db, 'users', user.uid), snapshot => {
       const userData = snapshot.data();
       setCurrentUser({
+        userObj: user,
         firstName: userData.firstName,
         lastName: userData.lastName,
         username: userData.username,
         email: user.email,
         emailVerified: user.emailVerified,
+        profilePicture: userData.profilePicture,
         uid: user.uid,
       });
-      setIsLoading(false);
     });
 
   //addUserToDatabase creates a document under users collection with user id as document id
@@ -48,6 +50,11 @@ const CurrentUserProvider = ({ children }) => {
           lastSeen: '',
           active: true,
           email: user.email,
+          profilePicture: '',
+        });
+
+        await setDoc(doc(db, 'users', user.uid, 'miscInfo', 'theme'), {
+          color: 'green',
         });
       } catch (err) {
         alertUser(err.message, 'error');
@@ -62,25 +69,21 @@ const CurrentUserProvider = ({ children }) => {
     //else create a document for the user and start listening to the document
 
     let unsubDb;
-    const unsubAuth = onAuthStateChanged(auth, user => {
+    const unsubAuth = onAuthStateChanged(auth, async user => {
       if (user !== null) {
-        getDoc(doc(db, 'users', user.uid))
-          .then(snapshot => {
-            if (snapshot.exists()) {
-              unsubDb = listenUserDoc(user);
-            } else {
-              addUserToDatabase(user)
-                .then(() => {
-                  unsubDb = listenUserDoc(user);
-                })
-                .catch(err => {
-                  alertUser(err.message, 'error');
-                });
-            }
-          })
-          .catch(err => {
-            alertUser(err.message, 'error');
-          });
+        try {
+          const snapshot = await getDoc(doc(db, 'users', user.uid));
+          if (snapshot.exists()) {
+            unsubDb = listenUserDoc(user);
+          } else {
+            await addUserToDatabase(user);
+            unsubDb = listenUserDoc(user);
+          }
+        } catch (err) {
+          alertUser(err.message, 'error');
+        } finally {
+          setIsLoading(false);
+        }
       } else {
         setCurrentUser(null);
         setIsLoading(false);
@@ -99,7 +102,7 @@ const CurrentUserProvider = ({ children }) => {
 
   return (
     <currentUserContext.Provider value={currentUser}>
-      {isLoading && <Loader />}
+      {isLoading && <FullScreenLoader />}
       {!isLoading && children}
     </currentUserContext.Provider>
   );

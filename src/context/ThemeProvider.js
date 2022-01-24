@@ -1,6 +1,17 @@
-import React, { useState, createContext, useContext } from 'react';
+import React, {
+  useState,
+  createContext,
+  useContext,
+  useEffect,
+  useCallback,
+} from 'react';
+import { auth, db } from '../firebase/firebase';
+import { onAuthStateChanged } from 'firebase/auth';
+import { doc, getDoc, updateDoc } from 'firebase/firestore';
+import { useAlertContext } from './AlertProvider';
 
-const themeContext = createContext();
+const updateThemeContext = createContext();
+const currentThemeContext = createContext();
 
 /* A div encloses other components of the app inside it and provide the variables 
 defined in the variables.scss file to the child elements. The setIsDarkTheme function
@@ -11,16 +22,54 @@ variables are overwritten by the variables in the light-theme class. */
 // variables are declared in "../styles/variables.scss"
 
 const ThemeProvider = ({ children }) => {
-  const [isDarkTheme, setIsDarkTheme] = useState(true);
+  const alertUser = useAlertContext();
+  const [currentUser, setCurrentUser] = useState(null);
+  const [currentTheme, setCurrentTheme] = useState('green');
+
+  useEffect(() => {
+    const unsubAuth = onAuthStateChanged(auth, async user => {
+      if (user !== null) {
+        setCurrentUser(user);
+        try {
+          const snapshot = await getDoc(
+            doc(db, 'users', user.uid, 'miscInfo', 'theme')
+          );
+          setCurrentTheme(snapshot.data().color);
+        } catch (err) {
+          setCurrentTheme(prev => prev);
+        }
+      } else {
+        setCurrentUser(null);
+      }
+      return () => {
+        unsubAuth();
+      };
+    });
+  }, [alertUser, currentTheme]);
+
+  const updateCurrentTheme = useCallback(
+    color => {
+      if (currentUser) {
+        updateDoc(doc(db, 'users', auth.currentUser.uid, 'miscInfo', 'theme'), {
+          color: color,
+        }).catch(err => {
+          alertUser(err.message, 'error');
+        });
+      }
+      setCurrentTheme(color);
+    },
+    [alertUser, currentUser]
+  );
   return (
-    <themeContext.Provider value={setIsDarkTheme}>
-      <div className={isDarkTheme ? 'dark-theme' : 'dark-theme light-theme'}>
-        {children}
-      </div>
-    </themeContext.Provider>
+    <currentThemeContext.Provider value={currentTheme}>
+      <updateThemeContext.Provider value={updateCurrentTheme}>
+        <div className={`base-theme ${currentTheme}-theme`}>{children}</div>
+      </updateThemeContext.Provider>
+    </currentThemeContext.Provider>
   );
 };
 
 export default ThemeProvider;
 
-export const useThemeContext = () => useContext(themeContext);
+export const useUpdateCurrentTheme = () => useContext(updateThemeContext);
+export const useCurrentTheme = () => useContext(currentThemeContext);

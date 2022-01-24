@@ -5,7 +5,12 @@ const BodyContainer = styled.div`
   min-height: ${props => 100 * props.vh}px;
 `;
 
-// custom body container to keep consistency between in mobile devices
+// Problem: The search bar on the top in mobile browsers hides on scrolling down.
+//          So, 100vh is not consistent in mobile browsers.
+// Solution: To dynamically get the dimensions of the viewport and have custom 1vh size.
+
+// Body is a component that can be used as a container.
+
 /*
 analogous to a div with following properties
   display: flex;
@@ -15,14 +20,21 @@ analogous to a div with following properties
   position: relative;
 */
 
+// styles implemented in "../styles/components/body.scss"
+
 const Body = ({ children, className = '' }) => {
   const [currentHeight, setCurrentHeight] = useState(window.innerHeight);
+  const [isMounted, setIsMounted] = useState(true);
 
   useEffect(() => {
     window.addEventListener('resize', () => {
-      setCurrentHeight(window.innerHeight);
+      if (isMounted) setCurrentHeight(window.innerHeight);
     });
-  }, []);
+
+    return () => {
+      setIsMounted(false);
+    };
+  }, [isMounted]);
   return (
     <BodyContainer
       className={`body-container ${className}`}

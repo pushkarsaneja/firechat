@@ -1,13 +1,14 @@
 import React, { useRef } from 'react';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../misc/firebase';
-import { useAlertContext } from '../context/AlertProvider';
-import { validEmail } from '../helper/emailValidation';
-import { verifyUserEmail } from '../helper/emailVerification';
+import { auth } from '../../firebase/firebase';
+import { useAlertContext } from '../../context/AlertProvider';
+import { validEmail } from '../../helper/validEmail';
+import { verifyUserEmail } from '../../helper/verifyUserEmail';
 import SignInWithGoogle from './SignInWithGoogle';
-import { PrimaryButton2 } from './Buttons';
+import { PrimaryButton1 } from '../../components/Buttons';
+import { BasicInput, PasswordInput } from '../../components/InputFields';
 
-// styles implemented in "../styles/components/signIn&UpForm.scss"
+// styles implemented in "../../styles/pages/registration/registrationForms.scss"
 
 const SignUpForm = () => {
   const alertUser = useAlertContext();
@@ -41,26 +42,12 @@ const SignUpForm = () => {
 
   return (
     <form className="signup" ref={signUpFormRef}>
-      <input
-        className="basic-input"
-        type="email"
-        placeholder="email"
-        name="email"
-      />
-      <input
-        className="basic-input"
-        type="password"
-        placeholder="password"
-        name="password"
-      />
-      <input
-        className="basic-input"
-        type="password"
-        placeholder="confirm password"
-        name="confirmPassword"
-      />
+      <BasicInput type="email" placeholder="email" name="email" />
+      <PasswordInput placeholder="password" name="password" />
+      <PasswordInput placeholder="confirm password" name="confirmPassword" />
+
       <div className="buttons-container">
-        <PrimaryButton2
+        <PrimaryButton1
           active={true}
           onClick={() => {
             signUpWithEmail(
@@ -71,7 +58,7 @@ const SignUpForm = () => {
           }}
         >
           Submit
-        </PrimaryButton2>
+        </PrimaryButton1>
         <SignInWithGoogle />
       </div>
     </form>

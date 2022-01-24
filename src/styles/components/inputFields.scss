@@ -13,3 +13,29 @@
     border: 3px solid var(--primaryColor2);
   }
 }
+
+.password-input-container {
+  position: relative;
+  margin: 1rem 0.5rem;
+  margin-top: 0;
+  > button {
+    background-color: var(--transparent);
+    position: absolute;
+    color: var(--textColor1);
+    right: 0;
+    top: 0;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    margin-right: 1rem;
+    outline: none;
+    border: none;
+    cursor: pointer;
+  }
+  .basic-input {
+    width: 100%;
+    margin: 0;
+  }
+}

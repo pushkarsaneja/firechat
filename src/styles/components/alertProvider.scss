@@ -9,7 +9,7 @@
   margin: 1rem;
   border-radius: 10px;
 
-  animation: slide-in 5s ease-in-out;
+  animation: slide-in 5s ease-in-out forwards;
   p {
     color: var(--textColor1);
     font-size: 1.2rem;

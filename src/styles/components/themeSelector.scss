@@ -1,0 +1,70 @@
+.theme-selector {
+  display: flex;
+  align-items: center;
+  position: relative;
+  overflow: visible;
+  h3 {
+    margin-right: 1rem;
+  }
+  .select-color {
+    height: 2rem;
+    width: 2rem;
+    border-radius: 50%;
+    border: 2px solid #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--transparent);
+    cursor: pointer;
+    margin-right: 1rem;
+    -webkit-tap-highlight-color: transparent;
+
+    > div {
+      height: 1.3rem;
+      width: 1.3rem;
+      background-color: var(--primaryColor1);
+      border-radius: 50%;
+    }
+
+    @media screen and (max-width: 650px) {
+      margin: 0;
+      margin-bottom: 1rem;
+    }
+  }
+
+  #selected-color {
+    margin-bottom: 0;
+  }
+
+  .theme-tray {
+    display: flex;
+    transition: all 0.2s ease-in-out;
+    overflow: hidden;
+    @media screen and (max-width: 650px) {
+      flex-direction: column;
+      position: absolute;
+      top: 2rem;
+      right: 0;
+      margin-top: 1rem;
+    }
+  }
+
+  .theme-tray.open {
+    width: 15rem;
+    @media screen and (max-width: 650px) {
+      height: 15rem;
+      width: 2rem;
+    }
+  }
+
+  .theme-tray.close {
+    width: 0;
+    @media screen and (max-width: 650px) {
+      height: 0rem;
+      width: 2rem;
+    }
+    .select-color {
+      opacity: 0;
+    }
+  }
+}

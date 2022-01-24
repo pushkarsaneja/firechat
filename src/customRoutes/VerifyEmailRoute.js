@@ -15,7 +15,7 @@ const VerifyEmailRoute = ({ children }) => {
     return <Navigate to="/" />;
   }
 
-  return <Navigate to="/signin" />;
+  return <Navigate to="/register" />;
 };
 
 export default VerifyEmailRoute;

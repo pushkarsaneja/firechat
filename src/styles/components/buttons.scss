@@ -10,12 +10,14 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
+
   > img {
     height: 1.5rem;
   }
   > span {
     margin-left: 1rem;
   }
+
   @media screen and (max-width: 450px) {
     span {
       display: none;
@@ -49,4 +51,76 @@
 .primary-button-2.active {
   background-color: var(--primaryColor2);
   color: #fff;
+}
+
+.primary-button-1.disable-button,
+.primary-button-2.disable-button {
+  background-color: var(--inactiveColor);
+  border-color: var(--inactiveColor);
+}
+
+.slim-button {
+  font-size: 1rem;
+  padding: 0.5rem;
+}
+
+.primary-button-1.hide {
+  display: none;
+}
+
+.file-selector-button {
+  input[type='file'] {
+    display: none;
+  }
+
+  label {
+    > i,
+    > div {
+      color: var(--textColor1);
+      font-size: 1.5rem;
+      border: 3px solid var(--primaryColor2);
+      background-color: var(--transparent);
+      padding: 1rem;
+      border-radius: 50%;
+    }
+  }
+
+  label.active {
+    > i,
+    > div {
+      background-color: var(--primaryColor2);
+    }
+  }
+}
+
+.circular-button-container {
+  .circular-button {
+    background-color: var(--transparent);
+    outline: none;
+    border: none;
+    > i,
+    > div {
+      color: var(--textColor1);
+      font-size: 1.5rem;
+      border: 3px solid var(--primaryColor2);
+      background-color: var(--transparent);
+      padding: 1rem;
+      border-radius: 50%;
+    }
+  }
+
+  .circular-button.active {
+    > i,
+    > div {
+      background-color: var(--primaryColor2);
+    }
+  }
+}
+
+.close-button {
+  background-color: var(--transparent);
+  color: var(--textColor1);
+  border: none;
+  outline: none;
+  cursor: pointer;
 }

@@ -1,0 +1,21 @@
+.full-screen-loader {
+  justify-content: center;
+  align-items: center;
+  font-size: 7rem;
+
+  #loading {
+    display: inline-block;
+    width: 100px;
+    height: 100px;
+    border: 10px solid rgb(255, 255, 255);
+    border-radius: 50%;
+    border-top-color: var(--primaryColor1);
+    animation: rotate-infinite 1.5s infinite linear;
+  }
+
+  @keyframes rotate-infinite {
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}

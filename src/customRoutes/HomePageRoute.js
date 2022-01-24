@@ -20,7 +20,7 @@ const HomePageRoute = ({ children }) => {
     return <Navigate to="/verifyEmail" />;
   }
 
-  return <Navigate to="/signin" />;
+  return <Navigate to="/register" />;
 };
 
 export default HomePageRoute;

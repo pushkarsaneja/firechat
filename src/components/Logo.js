@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { memo } from 'react';
 import styled from 'styled-components';
 
 // styles implemented in "../styles/components/logo.scss"
@@ -6,7 +6,9 @@ import styled from 'styled-components';
 const LogoContainer = styled.div`
   font-size: ${props => props.size}rem;
 `;
+
 // specify size in rems
+
 const Logo = ({ size }) => {
   return (
     <LogoContainer className="logo-container" size={size}>
@@ -15,4 +17,4 @@ const Logo = ({ size }) => {
   );
 };
 
-export default Logo;
+export default memo(Logo);

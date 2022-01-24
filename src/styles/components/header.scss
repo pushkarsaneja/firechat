@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  color: var(--textColor1);
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  width: 100%;
+  overflow: visible;
+  .logo-name {
+    display: flex;
+    align-items: center;
+    h2 {
+      margin-left: 1rem;
+      font-size: 2rem;
+    }
+  }
+}
