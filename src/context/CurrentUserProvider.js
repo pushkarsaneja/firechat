@@ -54,7 +54,7 @@ const CurrentUserProvider = ({ children }) => {
         });
 
         await setDoc(doc(db, 'users', user.uid, 'miscInfo', 'theme'), {
-          color: 'green',
+          color: 'blue',
         });
       } catch (err) {
         alertUser(err.message, 'error');

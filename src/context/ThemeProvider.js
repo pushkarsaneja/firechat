@@ -24,7 +24,7 @@ variables are overwritten by the variables in the light-theme class. */
 const ThemeProvider = ({ children }) => {
   const alertUser = useAlertContext();
   const [currentUser, setCurrentUser] = useState(null);
-  const [currentTheme, setCurrentTheme] = useState('green');
+  const [currentTheme, setCurrentTheme] = useState('');
 
   useEffect(() => {
     const unsubAuth = onAuthStateChanged(auth, async user => {
@@ -34,6 +34,7 @@ const ThemeProvider = ({ children }) => {
           const snapshot = await getDoc(
             doc(db, 'users', user.uid, 'miscInfo', 'theme')
           );
+          if (!snapshot.data().color) throw new Error('');
           setCurrentTheme(snapshot.data().color);
         } catch (err) {
           setCurrentTheme(prev => prev);
@@ -52,11 +53,14 @@ const ThemeProvider = ({ children }) => {
       if (currentUser) {
         updateDoc(doc(db, 'users', auth.currentUser.uid, 'miscInfo', 'theme'), {
           color: color,
-        }).catch(err => {
-          alertUser(err.message, 'error');
-        });
+        })
+          .then(() => {
+            setCurrentTheme(color);
+          })
+          .catch(err => {
+            alertUser(err.message, 'error');
+          });
       }
-      setCurrentTheme(color);
     },
     [alertUser, currentUser]
   );
