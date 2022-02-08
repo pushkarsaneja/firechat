@@ -17,8 +17,6 @@ const CreateProfile = () => {
   const user = useCurrentUser();
   const saveButtonRef = useRef();
 
-  console.log('Rerendered CreateProfile');
-
   // onSave updates the details of the user in the database if username is unique
   const onSave = useCallback(async () => {
     try {

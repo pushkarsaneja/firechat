@@ -200,8 +200,6 @@ const ChatRoom = () => {
                 onSelect={emoji => {
                   messageInputRef.current.value =
                     messageInputRef.current.value + emoji.native;
-
-                  console.log(emoji);
                 }}
                 title="Fire Chat"
                 emoji="fire"

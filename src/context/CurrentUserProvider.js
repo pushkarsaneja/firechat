@@ -99,8 +99,6 @@ const CurrentUserProvider = ({ children }) => {
     });
   }, [alertUser, addUserToDatabase]);
 
-  console.log(currentUser);
-
   return (
     <currentUserContext.Provider value={currentUser}>
       {isLoading && <FullScreenLoader />}
