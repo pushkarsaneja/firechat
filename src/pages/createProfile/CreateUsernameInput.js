@@ -1,8 +1,8 @@
 import React, { useEffect, useState, forwardRef } from 'react';
-import { collection, getDocs, query, where } from 'firebase/firestore';
-import { db } from '../../firebase/firebase';
+import { getDocs, query, where } from 'firebase/firestore';
 import { useAlertContext } from '../../context/AlertProvider';
 import { BasicInput } from '../../components/InputFields';
+import { useFixedReference } from '../../context/DbReferenceProvider';
 
 // styles implemented in "../../styles/pages/createProfile/createUsernameInput.scss"
 
@@ -14,7 +14,7 @@ import { BasicInput } from '../../components/InputFields';
 const CreateUsernameInput = forwardRef(
   ({ name, placeholder, type, id }, ref) => {
     const [isUsernameUnique, setIsUsernameUnique] = useState(false);
-    const users = collection(db, 'users');
+    const usersCollection = useFixedReference().usersCollection;
     const alertUser = useAlertContext();
 
     useEffect(() => {
@@ -22,7 +22,10 @@ const CreateUsernameInput = forwardRef(
     });
 
     const checkUsername = async username => {
-      const getUsername = query(users, where('username', '==', username)); // firebase query fetches documents with the username in the input
+      const getUsername = query(
+        usersCollection,
+        where('username', '==', username.toLowerCase())
+      ); // firebase query fetches documents with the username in the input
       try {
         const snapshot = await getDocs(getUsername);
         if (snapshot.empty) {

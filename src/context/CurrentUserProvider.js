@@ -11,6 +11,7 @@ import { doc, getDoc, onSnapshot, setDoc } from 'firebase/firestore';
 import { db } from '../firebase/firebase';
 import { useAlertContext } from './AlertProvider';
 import FullScreenLoader from '../components/FullScreenLoader';
+import { capitalizeFirst } from '../helper/capitalizeFirst';
 
 //this context provides current signed in user details
 const currentUserContext = createContext();
@@ -29,8 +30,8 @@ const CurrentUserProvider = ({ children }) => {
       const userData = snapshot.data();
       setCurrentUser({
         userObj: user,
-        firstName: userData.firstName,
-        lastName: userData.lastName,
+        firstName: capitalizeFirst(userData.firstName),
+        lastName: capitalizeFirst(userData.lastName),
         username: userData.username,
         email: user.email,
         emailVerified: user.emailVerified,

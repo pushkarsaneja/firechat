@@ -10,52 +10,61 @@ import VerifyEmailRoute from './customRoutes/VerifyEmailRoute';
 import CreateProfileRoute from './customRoutes/CreateProfileRoute';
 import CreateProfile from '../src/pages/createProfile/CreateProfile';
 import CurrentUserProvider from './context/CurrentUserProvider';
+import CurrentRecipientProvider from './context/CurrentRecipientProvider';
 import ThemeProvider from './context/ThemeProvider';
+import CurrentSectionProvider from './context/CurrentSectionProvider';
+import DbReferenceProvider from './context/DbReferenceProvider';
 
 const App = () => {
   return (
-    <ThemeProvider>
-      <AlertProvider>
+    <AlertProvider>
+      <ThemeProvider>
         <CurrentUserProvider>
-          <Router>
-            <Routes>
-              <Route
-                path="/"
-                element={
-                  <HomePageRoute>
-                    <Home />
-                  </HomePageRoute>
-                }
-              />
-              <Route
-                path="/register"
-                element={
-                  <PublicRoute>
-                    <Registration />
-                  </PublicRoute>
-                }
-              />
-              <Route
-                path="/verifyEmail"
-                element={
-                  <VerifyEmailRoute>
-                    <VerifyEmail />
-                  </VerifyEmailRoute>
-                }
-              />
-              <Route
-                path="/createProfile"
-                element={
-                  <CreateProfileRoute>
-                    <CreateProfile />
-                  </CreateProfileRoute>
-                }
-              />
-            </Routes>
-          </Router>
+          <CurrentRecipientProvider>
+            <DbReferenceProvider>
+              <Router>
+                <Routes>
+                  <Route
+                    path="/"
+                    element={
+                      <HomePageRoute>
+                        <CurrentSectionProvider>
+                          <Home />
+                        </CurrentSectionProvider>
+                      </HomePageRoute>
+                    }
+                  />
+                  <Route
+                    path="/register"
+                    element={
+                      <PublicRoute>
+                        <Registration />
+                      </PublicRoute>
+                    }
+                  />
+                  <Route
+                    path="/verifyEmail"
+                    element={
+                      <VerifyEmailRoute>
+                        <VerifyEmail />
+                      </VerifyEmailRoute>
+                    }
+                  />
+                  <Route
+                    path="/createProfile"
+                    element={
+                      <CreateProfileRoute>
+                        <CreateProfile />
+                      </CreateProfileRoute>
+                    }
+                  />
+                </Routes>
+              </Router>
+            </DbReferenceProvider>
+          </CurrentRecipientProvider>
         </CurrentUserProvider>
-      </AlertProvider>
-    </ThemeProvider>
+      </ThemeProvider>
+    </AlertProvider>
   );
 };
 

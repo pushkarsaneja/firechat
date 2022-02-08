@@ -9,15 +9,15 @@ import React from 'react';
 // slim property will make the button shorter in height and font size is also reduced
 
 export const PrimaryButton1 = React.forwardRef(
-  ({ active, children, onClick, id, slim, hide, disabled }, ref) => {
+  ({ active, children, onClick, id, slim, hide, disabled, className }, ref) => {
     return (
       <button
         type="button"
-        className={`${
-          active ? 'primary-button-1 active' : 'primary-button-1'
-        } ${slim ? 'slim-button' : ''} ${hide ? 'hide' : ''} ${
+        className={`primary-button-1 ${active ? ' active' : ''} ${
+          slim ? 'slim-button' : ''
+        } ${hide ? 'hide' : ''} ${
           disabled ? 'disable-button' : ''
-        }`}
+        } ${className}`}
         onClick={onClick}
         id={id}
         disabled={disabled}
@@ -30,15 +30,15 @@ export const PrimaryButton1 = React.forwardRef(
 );
 
 export const PrimaryButton2 = React.forwardRef(
-  ({ active, children, onClick, id, slim, hide, disabled }, ref) => {
+  ({ active, children, onClick, id, slim, hide, disabled, className }, ref) => {
     return (
       <button
         type="button"
-        className={`${
-          active ? 'primary-button-2 active' : 'primary-button-2'
-        } ${slim ? 'slim-button' : ''} ${hide ? 'hide' : ''} ${
+        className={`primary-button-2 ${active ? 'active' : ''} ${
+          slim ? 'slim-button' : ''
+        } ${hide ? 'hide' : ''} ${
           disabled ? 'disable-button' : ''
-        }`}
+        } ${className}`}
         onClick={onClick}
         id={id}
         disabled={disabled}
@@ -57,6 +57,7 @@ export const PrimaryButton2 = React.forwardRef(
 // accept takes in a string of acceptable file types. eg: ".jpeg,.jpg,.png".
 // if active, buttons have background of primary colour.
 // if not active, buttons have transparent background and border of primary color.
+// small makes the button smaller on screens with width less than 500px
 
 export const FileSelector = ({
   children,
@@ -65,13 +66,16 @@ export const FileSelector = ({
   accept,
   name,
   onChange,
-  className = '',
+  className,
+  small,
 }) => {
   return (
     <div className="file-selector-button">
       <label
         htmlFor={id}
-        className={active ? `${className} active` : className}
+        className={`${className} ${active ? `active` : ''} ${
+          small ? 'small' : ''
+        }`}
       >
         {children}
       </label>
@@ -93,13 +97,16 @@ export const CircularButton = ({
   children,
   onClick,
   id,
-  className = '',
+  className,
+  small,
 }) => {
   return (
     <div className={`circular-button-container ${className}`}>
       <button
         type="button"
-        className={`${active ? 'circular-button active' : 'circular-button'}`}
+        className={`circular-button ${active ? 'active' : ''} ${
+          small ? 'small' : ''
+        }`}
         onClick={onClick}
         id={id}
       >
@@ -109,7 +116,9 @@ export const CircularButton = ({
   );
 };
 
-export const CloseButton = ({ onClick, id, className = '' }) => {
+//returns a close X button
+
+export const CloseButton = ({ onClick, id, className }) => {
   return (
     <button
       type="button"
@@ -118,6 +127,20 @@ export const CloseButton = ({ onClick, id, className = '' }) => {
       id={id}
     >
       <i className="fas fa-times"></i>
+    </button>
+  );
+};
+
+// returns a transparent button with the icon inside it
+
+export const IconAsButton = ({ children, onClick, id, className }) => {
+  return (
+    <button
+      type="button"
+      className={`icon-as-button ${className}`}
+      onClick={onClick}
+    >
+      {children}
     </button>
   );
 };

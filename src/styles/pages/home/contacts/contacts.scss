@@ -1,0 +1,72 @@
+.contacts {
+  flex: 2;
+  padding-bottom: 1rem;
+  display: flex;
+  flex-direction: column;
+
+  .contacts-header {
+    color: var(--textColor1);
+    display: flex;
+    align-items: center;
+    font-size: 2rem;
+    font-weight: bold;
+    position: relative;
+    width: 100%;
+    // box-shadow: 0px 23px 20px var(--chatBackground);
+
+    .current-user {
+      display: flex;
+      align-items: center;
+      margin: 1rem;
+      > span {
+        margin-left: 1rem;
+        font-size: 0rem;
+      }
+      flex: 0;
+      transition: all 0.2s linear;
+    }
+
+    .current-user.expand {
+      flex: 1;
+      > span {
+        animation: expand 0.2s linear forwards 0.2s;
+      }
+      @keyframes expand {
+        100% {
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+    .search-bar {
+      margin: 0;
+      flex: 1;
+      transition: all 0.2s linear;
+    }
+
+    .search-bar.hide {
+      border-color: var(--transparent);
+      padding-left: 0;
+      padding-right: 0;
+      flex: 0;
+    }
+  }
+  @media screen and (max-width: 1500px) {
+    flex: 3;
+  }
+
+  @media screen and (max-width: 1200px) {
+    flex: 4;
+  }
+}
+
+@media screen and (max-width: 1000px) {
+  .contacts {
+    flex: 0;
+  }
+  .contacts.expand {
+    flex: 1;
+  }
+}
+
+@import './searchContacts.scss';

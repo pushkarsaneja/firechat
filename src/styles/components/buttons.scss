@@ -74,6 +74,7 @@
   }
 
   label {
+    cursor: pointer;
     > i,
     > div {
       color: var(--textColor1);
@@ -91,6 +92,15 @@
       background-color: var(--primaryColor2);
     }
   }
+
+  @media screen and (max-width: 500px) {
+    label.small {
+      > i,
+      > div {
+        padding: 0.5rem;
+      }
+    }
+  }
 }
 
 .circular-button-container {
@@ -98,6 +108,7 @@
     background-color: var(--transparent);
     outline: none;
     border: none;
+    cursor: pointer;
     > i,
     > div {
       color: var(--textColor1);
@@ -115,6 +126,15 @@
       background-color: var(--primaryColor2);
     }
   }
+
+  @media screen and (max-width: 500px) {
+    .circular-button.small {
+      > i,
+      > div {
+        padding: 0.5rem;
+      }
+    }
+  }
 }
 
 .close-button {
@@ -123,4 +143,17 @@
   border: none;
   outline: none;
   cursor: pointer;
+}
+
+.icon-as-button {
+  background-color: var(--transparent);
+  outline: none;
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2rem;
+  color: var(--textColor1);
+  cursor: pointer;
+  margin: 1rem;
 }

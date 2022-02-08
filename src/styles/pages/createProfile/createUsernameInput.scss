@@ -9,6 +9,10 @@
     margin: 1rem;
   }
 
+  #username {
+    text-transform: lowercase;
+  }
+
   .fa-times {
     color: rgba(255, 0, 0, 0.76);
   }

@@ -1,0 +1,20 @@
+.display-pic {
+  height: 70px;
+  width: 70px;
+  overflow: visible;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #fff;
+  border-radius: 50%;
+  position: relative;
+  cursor: pointer;
+  > img {
+    height: 90%;
+    border-radius: 50%;
+  }
+
+  &.online {
+    border-color: var(--primaryColor1);
+  }
+}

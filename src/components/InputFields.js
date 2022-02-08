@@ -4,7 +4,15 @@ import React, { forwardRef, useEffect, useRef, useState } from 'react';
 
 export const BasicInput = forwardRef(
   (
-    { className = '', type = 'text', placeholder = '', name, id, onChange },
+    {
+      className = '',
+      type = 'text',
+      placeholder = '',
+      name,
+      id,
+      onChange,
+      value,
+    },
     ref
   ) => {
     return (
@@ -16,6 +24,7 @@ export const BasicInput = forwardRef(
         id={id}
         ref={ref}
         onChange={onChange}
+        value={value}
       />
     );
   }

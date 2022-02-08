@@ -1,0 +1,90 @@
+.base-theme {
+  --backgroundColor: #1a1a1b;
+  --transparentBackgroundColor: rgba(79, 79, 94, 0.8);
+  --inactiveColor: #807b7b;
+  --textColor1: #fff;
+  --textColor2: #e0e0e0;
+  --textColor3: #000;
+  --transparent: #ffffff00;
+  --primaryColor1: #26abd7;
+  --primaryColor2: #1a6eb3;
+  --chatBackground: #1a6eb380;
+  --chatBackgroundGradient: linear-gradient(
+      to bottom,
+      #1a6eb383 0%,
+      #1a1a1b 80%
+    ),
+    url('../assets/wallpapers/blue_wallpaper.jpg');
+}
+
+.green-theme {
+  --primaryColor1: #25d366;
+  --primaryColor2: #128c7e;
+  --chatBackground: #128c7e80;
+  --chatBackgroundGradient: linear-gradient(
+      to bottom,
+      #128c7e80 0%,
+      #1a1a1b 80%
+    ),
+    url('../assets/wallpapers/green_wallpaper.jpg');
+}
+
+.blue-theme {
+  --primaryColor1: #26abd7;
+  --primaryColor2: #1a6eb3;
+  --chatBackground: #1a6eb380;
+  --chatBackgroundGradient: linear-gradient(
+      to bottom,
+      #1a6eb383 0%,
+      #1a1a1b 80%
+    ),
+    url('../assets/wallpapers/blue_wallpaper.jpg');
+}
+
+.purple-theme {
+  --primaryColor1: #a01fc4;
+  --primaryColor2: #711185;
+  --chatBackground: #71118580;
+  --chatBackgroundGradient: linear-gradient(
+      to bottom,
+      #70118380 0%,
+      #1a1a1b 80%
+    ),
+    url('../assets/wallpapers/purple_wallpaper.jpg');
+}
+
+.pink-theme {
+  --primaryColor1: #d62758;
+  --primaryColor2: #9e1143;
+  --chatBackground: #9e114380;
+  --chatBackgroundGradient: linear-gradient(
+      to bottom,
+      #9e114380 0%,
+      #1a1a1b 80%
+    ),
+    url('../assets/wallpapers/pink_wallpaper.jpg');
+}
+
+.yellow-theme {
+  --primaryColor1: #d6a227;
+  --primaryColor2: #ae8412;
+  --chatBackground: #ae841280;
+  --chatBackgroundGradient: linear-gradient(
+      to bottom,
+      #ae841280 0%,
+      #1a1a1b 80%
+    ),
+    url('../assets/wallpapers/yellow_wallpaper.jpg');
+}
+
+.orange-theme {
+  --primaryColor1: #ed6732;
+  --primaryColor2: #b04f17;
+  --chatBackground: #b04f1780;
+  --chatBackgroundGradient: linear-gradient(
+      to bottom,
+      #b04f1780 0%,
+      #1a1a1b 80%
+    ),
+    url('../assets/wallpapers/orange_wallpaper.jpg');
+}

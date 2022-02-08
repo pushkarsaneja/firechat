@@ -2,7 +2,10 @@ import React, { useState, useEffect } from 'react';
 import styled from 'styled-components';
 
 const BodyContainer = styled.div`
-  min-height: ${props => 100 * props.vh}px;
+  ${props =>
+    props.fixed
+      ? `height: ${100 * props.vh - 0.0001}px;` // 0.0001 is subtracted to prevent overflow if occurs.
+      : `min-height: ${100 * props.vh - 0.0001}px`}
 `;
 
 // Problem: The search bar on the top in mobile browsers hides on scrolling down.
@@ -14,6 +17,7 @@ const BodyContainer = styled.div`
 /*
 analogous to a div with following properties
   display: flex;
+  flex-direction: column;
   min-height: 100vh;
   width: 100vw;
   background: var(--backgroundColor);
@@ -22,7 +26,7 @@ analogous to a div with following properties
 
 // styles implemented in "../styles/components/body.scss"
 
-const Body = ({ children, className = '' }) => {
+const Body = ({ fixed, children, className = '' }) => {
   const [currentHeight, setCurrentHeight] = useState(window.innerHeight);
   const [isMounted, setIsMounted] = useState(true);
 
@@ -39,6 +43,7 @@ const Body = ({ children, className = '' }) => {
     <BodyContainer
       className={`body-container ${className}`}
       vh={currentHeight * 0.01}
+      fixed={fixed}
     >
       {children}
     </BodyContainer>

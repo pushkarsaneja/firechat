@@ -1,0 +1,23 @@
+.searched-contacts-container {
+  width: 100%;
+  padding: 1rem;
+  animation: mount 0.2s linear forwards;
+
+  .search-instructions {
+    padding: 1rem;
+    color: var(--inactiveColor);
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  @keyframes mount {
+    0% {
+      flex: 0;
+      overflow: hidden;
+    }
+    100% {
+      flex: 1;
+      overflow: auto;
+    }
+  }
+}

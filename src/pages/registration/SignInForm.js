@@ -15,7 +15,7 @@ const SignInForm = () => {
   const signInWithEmail = async (email, password) => {
     try {
       await signInWithEmailAndPassword(auth, email, password);
-      alertUser('Signed In Successfully', 'success');
+      alertUser('SignIn Successful', 'success');
     } catch (err) {
       alertUser(err.message, 'error');
     }

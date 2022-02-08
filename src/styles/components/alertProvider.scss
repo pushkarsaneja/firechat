@@ -11,7 +11,7 @@
 
   animation: slide-in 5s ease-in-out forwards;
   p {
-    color: var(--textColor1);
+    color: #fff;
     font-size: 1.2rem;
     font-weight: 500;
   }
@@ -19,13 +19,13 @@
     padding: 1rem;
     border: none;
     outline: none;
-    background-color: var(--transparent);
+    background-color: transparent;
     font-size: 1.2rem;
     position: absolute;
     top: 0;
     right: 0;
     cursor: pointer;
-    color: var(--textColor1);
+    color: #fff;
   }
 }
 

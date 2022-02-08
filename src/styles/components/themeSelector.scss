@@ -3,8 +3,10 @@
   align-items: center;
   position: relative;
   overflow: visible;
+  z-index: 3;
   h3 {
     margin-right: 1rem;
+    cursor: pointer;
   }
   .select-color {
     height: 2rem;

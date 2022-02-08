@@ -29,9 +29,9 @@ const CreateProfile = () => {
         throw new Error('Username is not valid');
       }
       await updateUserData(user.uid, {
-        firstName: formRef.current.firstName.value,
-        lastName: formRef.current.lastName.value,
-        username: formRef.current.username.value,
+        firstName: formRef.current.firstName.value.toLowerCase(),
+        lastName: formRef.current.lastName.value.toLowerCase(),
+        username: formRef.current.username.value.toLowerCase(),
       });
     } catch (err) {
       alertUser(err.message, 'error');

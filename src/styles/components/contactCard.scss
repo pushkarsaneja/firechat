@@ -1,0 +1,100 @@
+.contact-card {
+  background-color: #2e3136;
+  width: 100%;
+  border-radius: 10px;
+  margin: 1rem 0;
+  display: flex;
+  cursor: pointer;
+  padding: 1rem;
+  border: 2px solid transparent;
+  position: relative;
+  overflow: visible;
+  user-select: none;
+
+  &.active {
+    border: 2px solid var(--primaryColor1);
+  }
+
+  .notification-badge {
+    background-color: var(--primaryColor1);
+    color: var(--textColor1);
+    font-weight: bold;
+    height: 1rem;
+    width: 1rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    position: absolute;
+    top: -0.5rem;
+    right: -0.5rem;
+  }
+
+  .dp-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .contact-info {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--textColor1);
+    margin-left: 1rem;
+
+    .contact-name {
+      display: flex;
+      justify-content: space-between;
+
+      .last-mssg-time {
+        font-size: 0.9rem;
+      }
+    }
+
+    .contact-username {
+      color: var(--primaryColor1);
+      font-size: 1rem;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    .last-message {
+      font-size: 1rem;
+      margin-top: 1rem;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+    }
+  }
+
+  .right-click-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: none;
+    height: 100%;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background-color: #2e3136;
+    border-radius: 10px;
+
+    .delete-chat {
+      width: 60%;
+    }
+
+    .close-menu {
+      position: absolute;
+      right: 0;
+      top: 0;
+      margin: 1rem;
+      font-size: 1.5rem;
+    }
+
+    &.show {
+      display: flex;
+    }
+  }
+}

@@ -4,14 +4,7 @@ import {
   useUpdateCurrentTheme,
 } from '../context/ThemeProvider';
 
-const availableThemes = [
-  'green',
-  'blue',
-  'orange',
-  'purple',
-  'maroon',
-  'yellow',
-];
+const availableThemes = ['green', 'blue', 'orange', 'purple', 'pink', 'yellow'];
 
 // styles implemented in "../styles/components/themeSelector.scss"
 
@@ -25,7 +18,7 @@ const ThemeSelector = () => {
 
   return (
     <div className="theme-selector">
-      <h3>Theme</h3>
+      <h3 onClick={() => setIsTrayOpen(prev => !prev)}>Theme</h3>
       <button
         className="select-color"
         id="selected-color"

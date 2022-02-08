@@ -1,0 +1,95 @@
+.edit-profile-modal {
+  background-color: var(--backgroundColor);
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  left: 0;
+  top: 0;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  * {
+    flex-shrink: 0;
+  }
+
+  .modal-heading {
+    font-size: 2.5rem;
+    color: var(--textColor1);
+    margin: 1rem;
+    margin-top: 4rem;
+  }
+
+  .update-profile-container {
+    border: 2px solid var(--primaryColor1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+    border-radius: 1em;
+    max-width: 600px;
+    width: 90%;
+    margin-bottom: 2rem;
+  }
+
+  .my-username {
+    font-size: 1.5rem;
+    color: var(--primaryColor1);
+    font-weight: bold;
+    letter-spacing: 2px;
+  }
+
+  .edit-first-name,
+  .edit-last-name {
+    margin: 1rem;
+    color: var(--textColor1);
+    font-size: 1.2rem;
+    width: 100%;
+    font-weight: bold;
+
+    .input-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    label {
+      font-size: 1.5rem;
+      cursor: pointer;
+    }
+
+    label.hide {
+      display: none;
+    }
+
+    #editFirstName,
+    #editLastName {
+      flex-shrink: 1;
+      margin: 1rem;
+      margin-left: 0;
+      background-color: transparent;
+      border: none;
+      outline: none;
+      color: var(--textColor1);
+      font-size: 1.5rem;
+      border-bottom: 2px solid var(--transparent);
+      &:focus {
+        border-bottom: 2px solid var(--textColor1);
+      }
+    }
+  }
+
+  .close-modal {
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: 2rem;
+    font-size: 2rem;
+  }
+
+  .logout-btn {
+    width: 100%;
+  }
+}

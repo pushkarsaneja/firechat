@@ -1,0 +1,7 @@
+.use-wallpaper {
+  background: var(--chatBackground);
+  background: var(--chatBackgroundGradient);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}

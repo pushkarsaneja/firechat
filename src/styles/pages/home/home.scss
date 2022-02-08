@@ -1,0 +1,11 @@
+.home-page {
+  .main-container {
+    flex: 1;
+    display: flex;
+    position: relative;
+  }
+}
+
+@import './contacts/contacts.scss';
+@import './chatRoom/chatRoom.scss';
+@import './editProfileModal.scss';

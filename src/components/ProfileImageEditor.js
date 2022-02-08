@@ -137,6 +137,7 @@ const ProfileImageEditor = ({ disableButtons = [] }) => {
             }}
             disabled={inProcess}
             hide={!user.profilePicture}
+            className="remove-photo-btn"
           >
             Remove Photo
           </PrimaryButton1>
@@ -180,6 +181,7 @@ const ProfileImageEditor = ({ disableButtons = [] }) => {
               uploadImage();
             }}
             disabled={inProcess}
+            className="use-img-btn"
           >
             Use
           </PrimaryButton1>
