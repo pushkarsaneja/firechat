@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/firechat/static/css/main.9b2b37e2.css",
+    "main.js": "/firechat/static/js/main.42bf57a2.js",
+    "static/media/green_wallpaper.jpg": "/firechat/static/media/green_wallpaper.f46e0158d9559ef19b8c.jpg",
+    "static/media/blue_wallpaper.jpg": "/firechat/static/media/blue_wallpaper.4c2cb6d448937d509313.jpg",
+    "static/media/yellow_wallpaper.jpg": "/firechat/static/media/yellow_wallpaper.c90b3c89d3840697c4e1.jpg",
+    "static/media/pink_wallpaper.jpg": "/firechat/static/media/pink_wallpaper.8fcf56d12c41a1b4aaef.jpg",
+    "static/media/purple_wallpaper.jpg": "/firechat/static/media/purple_wallpaper.64e080f24f25860200cf.jpg",
+    "static/media/orange_wallpaper.jpg": "/firechat/static/media/orange_wallpaper.7e2b32ba5cdc1e0391c9.jpg",
+    "static/media/google.jpeg": "/firechat/static/media/google.3b44a32b77f4074c1956.jpeg",
+    "static/media/no_profile_cropped.png": "/firechat/static/media/no_profile_cropped.da2a51e9669396ae321b.png",
+    "static/media/no_profile.png": "/firechat/static/media/no_profile.2fda6558cd58b877e14f.png",
+    "index.html": "/firechat/index.html",
+    "main.9b2b37e2.css.map": "/firechat/static/css/main.9b2b37e2.css.map",
+    "main.42bf57a2.js.map": "/firechat/static/js/main.42bf57a2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.9b2b37e2.css",
+    "static/js/main.42bf57a2.js"
+  ]
+}
