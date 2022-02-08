@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/firechat/static/css/main.9b2b37e2.css",
+    "main.css": "/firechat/static/css/main.09c95267.css",
     "main.js": "/firechat/static/js/main.42bf57a2.js",
     "static/media/green_wallpaper.jpg": "/firechat/static/media/green_wallpaper.f46e0158d9559ef19b8c.jpg",
     "static/media/blue_wallpaper.jpg": "/firechat/static/media/blue_wallpaper.4c2cb6d448937d509313.jpg",
@@ -12,11 +12,11 @@
     "static/media/no_profile_cropped.png": "/firechat/static/media/no_profile_cropped.da2a51e9669396ae321b.png",
     "static/media/no_profile.png": "/firechat/static/media/no_profile.2fda6558cd58b877e14f.png",
     "index.html": "/firechat/index.html",
-    "main.9b2b37e2.css.map": "/firechat/static/css/main.9b2b37e2.css.map",
+    "main.09c95267.css.map": "/firechat/static/css/main.09c95267.css.map",
     "main.42bf57a2.js.map": "/firechat/static/js/main.42bf57a2.js.map"
   },
   "entrypoints": [
-    "static/css/main.9b2b37e2.css",
+    "static/css/main.09c95267.css",
     "static/js/main.42bf57a2.js"
   ]
 }
