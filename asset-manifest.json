@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/firechat/static/css/main.09c95267.css",
-    "main.js": "/firechat/static/js/main.42bf57a2.js",
+    "main.js": "/firechat/static/js/main.b6523268.js",
     "static/media/green_wallpaper.jpg": "/firechat/static/media/green_wallpaper.f46e0158d9559ef19b8c.jpg",
     "static/media/blue_wallpaper.jpg": "/firechat/static/media/blue_wallpaper.4c2cb6d448937d509313.jpg",
     "static/media/yellow_wallpaper.jpg": "/firechat/static/media/yellow_wallpaper.c90b3c89d3840697c4e1.jpg",
@@ -13,10 +13,10 @@
     "static/media/no_profile.png": "/firechat/static/media/no_profile.2fda6558cd58b877e14f.png",
     "index.html": "/firechat/index.html",
     "main.09c95267.css.map": "/firechat/static/css/main.09c95267.css.map",
-    "main.42bf57a2.js.map": "/firechat/static/js/main.42bf57a2.js.map"
+    "main.b6523268.js.map": "/firechat/static/js/main.b6523268.js.map"
   },
   "entrypoints": [
     "static/css/main.09c95267.css",
-    "static/js/main.42bf57a2.js"
+    "static/js/main.b6523268.js"
   ]
 }
