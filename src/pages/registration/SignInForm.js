@@ -39,6 +39,24 @@ const SignInForm = () => {
         </PrimaryButton1>
         <SignInWithGoogle />
       </div>
+      <PrimaryButton1
+        active
+        onClick={() => {
+          signInWithEmail('motot59951@plexfirm.com', 'password');
+        }}
+        slim
+      >
+        Demo Login (Phineas)
+      </PrimaryButton1>
+      <PrimaryButton1
+        active
+        onClick={() => {
+          signInWithEmail('petig79253@goonby.com', 'password');
+        }}
+        slim
+      >
+        Demo Login (Ferb)
+      </PrimaryButton1>
     </form>
   );
 };

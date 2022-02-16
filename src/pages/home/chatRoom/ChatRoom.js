@@ -217,6 +217,7 @@ const ChatRoom = () => {
                 sendMessage(messageInputRef.current.value, getCurrentTime());
                 messageInputRef.current.value = '';
                 messageInputRef.current.focus();
+                setShowEmojiPicker(false);
               }}
               small
             >
